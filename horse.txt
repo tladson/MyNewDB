@@ -1,3 +1,0 @@
-horse.txt
--------
-The horse (Equus ferus caballus) is one of two extant subspecies of Equus ferus.
