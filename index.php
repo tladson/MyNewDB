@@ -14,11 +14,11 @@
   </head>
   <body>
 <?php
-$dbhost = $_SERVER['RDS_HOSTNAME'];
-$dbport = $_SERVER['RDS_PORT'];
-$dbname = $_SERVER['RDS_DB_NAME'];
-$username = $_SERVER['RDS_USERNAME'];
-$password = $_SERVER['RDS_PASSWORD'];
+$dbhost = "training-database.cwoucfsdiyqd.us-west-2.rds.amazonaws.com";
+$dbport = 3306;
+$dbname = "trng_database";
+$username = "db_user";
+$password = "atc12345";
 
 $dbh = mysqli_connect($dbhost, $username, $password, $dbname, $dbport); 
 
