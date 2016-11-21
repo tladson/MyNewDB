@@ -11,32 +11,14 @@
     <!--[if IE]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+<?
+  require 'scripts/DB_Scripts.php';
+?>
   </head>
   <body>
+      <h1>Hello World!!</h1>
 <?php
-$dbhost = "training-database.cwoucfsdiyqd.us-west-2.rds.amazonaws.com";
-$dbport = 3306;
-$dbname = "trng_database";
-$username = "db_user";
-$password = "atc12345";
-
-$dbh = mysqli_connect($dbhost, $username, $password, $dbname, $dbport); 
-
-?>
-
-    <h1>Hello World!!</h1>
-	
-<?php
-  if ($dbh){
-  	 echo "<p>You are connected to the DB</p>";
-  } else {
-  	  echo "<p>Sorry, no connection</p>";
-	}
-	
-  if ($dbh->connect_errno) {
-    echo "<p>Sorry, no connection</p>";
-    exit();
-  }
+db_connect();
 	
   $query_string = "SELECT * FROM Customers";
   if ($result = $dbh->query($query_string)) {
