@@ -15,10 +15,15 @@ $dbh = mysqli_connect($dbhost, $username, $password, $dbname, $dbport);
   } else {
   	  echo "<p>Sorry, no connection</p>";
 	}
-	
-  if ($dbh->connect_errno) {
-    echo "<p>Sorry, no connection</p>";
-    exit();
+
+  // Check connection
+  if ($dbh->connect_error) {
+    die("Connection failed: " . $dbh->connect_error);
   }
   
-}
+  // Check connection pre-5.2.9
+  if (mysqli_connect_error()) {
+    die("Database connection failed: " . mysqli_connect_error());
+  }
+  
+}  // End function db_connect
