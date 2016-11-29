@@ -12,7 +12,7 @@ function db_connect() {
 $dbh = mysqli_connect($dbhost, $username, $password, $dbname, $dbport); 
 
   if ($dbh){
-  	 echo "<p>You are connected to the DB</p>";
+  	 echo "You are connected to the DB";
   } else {
   	  echo "<p>Sorry, no connection</p>";
 	}
