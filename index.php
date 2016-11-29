@@ -11,21 +11,26 @@
     <!--[if IE]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+<?php
+require 'scripts/DB_Scripts.php';
+?>
   </head>
   <body>
       <h1>Hello World!!</h1>
+	  
 <?php
-
-require 'scripts/DB_Scripts.php';
 
 db_connect();
 	
   $query_string = "SELECT * FROM Customers";
-  if ($result = $dbh->query($query_string)) {
-    echo "<p>Select returned $result->num_rows rows.</p>";  
+  // Removed- if ($result = $dbh->query($query_string)) {
+  if ($result = mysqli_query($dbh, $query_string)) {
+    // Removed- echo "Select returned $result->num_rows rows."; 
+	echo "Select returned" . mysqli_num_rows($result) . "rows."; 
 
     /* free result set */
-    $result->close();
+    // Removed- $result->close();
+	mysqli_close($dbh);
 }
 ?>
   </body>
