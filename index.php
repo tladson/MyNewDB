@@ -11,25 +11,22 @@
     <!--[if IE]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-<?php
-require 'scripts/DB_Scripts.php';
-?>
   </head>
   <body>
       <h1>Hello World!!</h1>
 	  
 <?php
 
+require 'scripts/DB_Scripts.php';
+
 db_connect();
 	
   $query_string = "SELECT * FROM Customers";
-  // Removed- if ($result = $dbh->query($query_string)) {
-  if ($result = mysqli_query($dbh, $query_string)) {
-    // Removed- echo "Select returned $result->num_rows rows."; 
+  $result = mysqli_query($dbh, $query_string);
+  if (mysqli_num_rows($result) > 0) {
 	echo "Select returned" . mysqli_num_rows($result) . "rows."; 
 
     /* free result set */
-    // Removed- $result->close();
 	mysqli_close($dbh);
 }
 ?>
