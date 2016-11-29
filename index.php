@@ -26,7 +26,7 @@ function db_connect() {
   $username = "db_user";
   $password = "atc12345";
 
-  $dbh = mysqli_connect($dbhost, $username, $password, $dbname, $dbport); 
+  global $dbh = mysqli_connect($dbhost, $username, $password, $dbname, $dbport); 
 
   if ($dbh){
   	 echo "You are connected to the DB";
