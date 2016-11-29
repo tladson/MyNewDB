@@ -25,6 +25,8 @@ function db_connect() {
   $dbname = "trng_database";
   $username = "db_user";
   $password = "atc12345";
+  
+  global $dbh;
 
   $dbh = mysqli_connect($dbhost, $username, $password, $dbname, $dbport); 
 
