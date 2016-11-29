@@ -1,4 +1,5 @@
-/* Database Functions */
+<?
+// Database Functions 
 
 function db_connect() {
 
@@ -27,3 +28,4 @@ $dbh = mysqli_connect($dbhost, $username, $password, $dbname, $dbport);
   }
   
 }  // End function db_connect
+?>
