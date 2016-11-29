@@ -8,13 +8,15 @@ function db_connect() {
   $dbname = "trng_database";
   $username = "db_user";
   $password = "atc12345";
+  
+  global $dbh;
 
   $dbh = mysqli_connect($dbhost, $username, $password, $dbname, $dbport); 
 
   if ($dbh){
-  	 echo "You are connected to the DB";
+  	 echo "You are connected to the DB\n";
   } else {
-  	  echo "Sorry, no connection";
+  	  echo "Sorry, no connection\n";
 	}
 
   // Check connection pre-5.2.9
