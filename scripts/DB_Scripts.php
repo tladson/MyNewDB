@@ -1,5 +1,9 @@
-<?
+<p>Inside required file in HTML mode</p>
+
+<?php
 // Database Functions 
+
+echo "Inside required file executing php"
 
 function db_connect() {
 
