@@ -1,5 +1,3 @@
-<p>Inside required file in HTML mode</p>
-
 <?php
 // Database Functions 
 
