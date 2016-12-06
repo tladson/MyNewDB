@@ -18,7 +18,7 @@
 <?php
 // Database Functions 
 
-  include 'scripts/DB_Scripts.php';
+  require 'scripts/DB_Scripts.php';
   db_connect();
 	
   $query_string = "SELECT * FROM Customers";
