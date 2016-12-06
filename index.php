@@ -30,5 +30,6 @@
 	mysqli_close($dbh);
 }
 ?>
+   <h1>...And now the End of the World!!</h1>
   </body>
 </html>
