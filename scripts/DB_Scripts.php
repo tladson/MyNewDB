@@ -1,7 +1,6 @@
 <?php
 // Database Functions 
 
-echo "Inside required file executing php";
 
 function db_connect() {
 
