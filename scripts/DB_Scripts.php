@@ -27,4 +27,18 @@ function db_connect() {
   
 }  // End function db_connect
 
+
+function show_customers () {
+
+  $query_string = "SELECT * FROM Customers";
+  $result = mysqli_query($dbh, $query_string);
+  if (mysqli_num_rows($result) > 0) {
+	echo "Select returned " . mysqli_num_rows($result) . " rows.\n"; 
+
+    /* free result set */
+	mysqli_close($dbh);
+  }
+  
+} // End function show_customers
+
 ?>
