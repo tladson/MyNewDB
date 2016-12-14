@@ -23,5 +23,6 @@
 	
   show_customers();
 ?>
+    <h2>All code has been condensed to functions.</h2>
   </body>
 </html>
