@@ -34,7 +34,24 @@ function show_customers($db) {
   $result = mysqli_query($db, $query_string);
   if (mysqli_num_rows($result) > 0) {
 	echo "Select returned " . mysqli_num_rows($result) . " rows.\n"; 
+?>
+<table>
+  <tr>
+    <th>First</th>
+	<th>Last</th>
+	<th>Age</th>
+	<th>SSN</th>
+  </tr>
+  <tr>
+    <td>Tony</td>
+	<td>Hill</td>
+	<td>30</td>
+	<td>34548</td>
+  </tr>
+</table>
+	
 
+<?
     /* free result set */
 	mysqli_close($db);
   } else {
