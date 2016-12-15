@@ -21,7 +21,7 @@
   require 'scripts/DB_Scripts.php';
   db_connect();
 	
-  show_customers();
+  show_customers($dbh);
 ?>
     <h2>All code has been condensed to functions.</h2>
   </body>
