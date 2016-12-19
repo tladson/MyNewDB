@@ -37,6 +37,7 @@ function show_customers($db) {
 
 	// build display table
 	echo "<table>\n<tr>\n";
+	echo "<th>Cust ID</th>\n";
 	echo "<th>First</th>\n";
 	echo "<th>Last</th>\n";
 	echo "<th>Age</th>\n";
@@ -49,6 +50,7 @@ function show_customers($db) {
 	  echo "<td>$row[1]</td>\n";
 	  echo "<td>$row[2]</td>\n";
 	  echo "<td>$row[3]</td>\n";
+	  echo "<td>$row[4]</td>\n";
 	  echo "</tr>\n";
 	}
 	echo "</table>\n";
