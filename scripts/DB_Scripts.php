@@ -41,7 +41,7 @@ function show_customers($db) {
 	echo "<th>Last</th>\n";
 	echo "<th>Age</th>\n";
 	echo "<th>SSN</th>\n";
-	ehco "</tr>\n<tr>\n";
+//	ehco "</tr>\n<tr>\n";
 //	echo "<td>Tony</td>\n";
 //	echo "<td>Hill</td>\n";
 //	echo "<td>30</td>\n";
