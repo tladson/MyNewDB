@@ -36,7 +36,7 @@ function show_customers($db) {
 	echo "Select returned " . mysqli_num_rows($result) . " rows.\n"; 
 
 	// build display table
-//	echo "<table>\n<tr>";
+	echo "<table>\n<tr>";
 //	echo "<th>First</th>\n";
 //	echo "<th>Last</th>\n";
 //	echo "<th>Age</th>\n";
@@ -46,7 +46,7 @@ function show_customers($db) {
 //	echo "<td>Hill</td>\n";
 //	echo "<td>30</td>\n";
 //	echo "<td>34548</td>\n";
-//	echo "</tr>\n</table>";
+	echo "</tr>\n</table>";
 
     /* free result set */
 	mysqli_close($db);
