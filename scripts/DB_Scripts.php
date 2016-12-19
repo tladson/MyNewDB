@@ -41,12 +41,17 @@ function show_customers($db) {
 	echo "<th>Last</th>\n";
 	echo "<th>Age</th>\n";
 	echo "<th>SSN</th>\n";
-	echo "</tr>\n<tr>\n";
-	echo "<td>Tony</td>\n";
-	echo "<td>Hill</td>\n";
-	echo "<td>30</td>\n";
-	echo "<td>34548</td>\n";
-	echo "</tr>\n</table>\n";
+	echo "</tr>\n";
+	
+	while ($row = mysqli_fetch_row($result)) {
+	  echo "<tr>\n";
+	  echo "<td>$row[0]</td>\n";
+	  echo "<td>$row[1]</td>\n";
+	  echo "<td>$row[2]</td>\n";
+	  echo "<td>$row[3]</td>\n";
+	  echo "</tr>\n";
+	}
+	echo "</table>\n";
 
     /* free result set */
 	mysqli_close($db);
