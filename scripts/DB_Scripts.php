@@ -27,6 +27,14 @@ function db_connect() {
   
 }  // End function db_connect
 
+function disconnect_DB ($db) {
+
+  if ($db) 
+    mysqli_close($db);
+  else
+    echo "An error occurred: No DB connection to close";
+}
+
 
 function show_customers($db) {
 
@@ -55,12 +63,40 @@ function show_customers($db) {
 	}
 	echo "</table>\n";
 
-    /* free result set */
-	mysqli_close($db);
   } else {
   		 echo "No Customers to show\n";
   	} 
   
 } // End function show_customers
+
+
+function show_parts ($db) {
+
+  $query_string = "SELECT * FROM Parts";
+  $result = mysqli_query($db, $query_string);
+  if (mysqli_num_rows($result) > 0) {
+	echo mysqli_num_rows($result) . " parts found.\n"; 
+
+	// build display table
+	echo "<table>\n<tr>\n";
+	echo "<th>Part ID</th>\n";
+	echo "<th>Name</th>\n";
+	echo "<th>Price</th>\n";
+	echo "</tr>\n";
+	
+	while ($row = mysqli_fetch_row($result)) {
+	  echo "<tr>\n";
+	  echo "<td>$row[0]</td>\n";
+	  echo "<td>$row[1]</td>\n";
+	  echo "<td>$row[2]</td>\n";
+	  echo "</tr>\n";
+	}
+	echo "</table>\n";
+
+  } else {
+  		 echo "No Parts to show\n";
+  	} 
+  
+} // End function show_parts
 
 ?>

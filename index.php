@@ -22,6 +22,9 @@
   db_connect();
 	
   show_customers($dbh);
+  show_parts($dbh);
+  
+  disconnect_DB($dbh);
 ?>
     <h2>All code has been condensed to functions.</h2>
   </body>
