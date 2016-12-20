@@ -37,16 +37,17 @@
     show_parts($dbh);
 ?>
 	  </center></div>
-	  
+<!--	  
 	  // Orders panel
 	  <div class="Panel">
-	    <center><h3>Orders<br /></h3>
+	    <center><h3>Orders<br />
 <?php
 	  show_orders($dbh);
 ?>
 	  </center></div>
     </div>
 	<br style="clear:left;" />
+-->
 <?php
     disconnect_DB($dbh);
 ?>
