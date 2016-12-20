@@ -95,7 +95,7 @@ function show_parts ($db) {
   	} 
   
 } // End function show_parts
-
+/*
 function show_orders ($db) {
 
   $query_string = "SELECT * FROM Orders";
@@ -145,5 +145,5 @@ function show_orders ($db) {
   	} 
   
  } // End function show_orders
-
+*/
 ?>
