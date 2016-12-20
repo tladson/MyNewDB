@@ -7,25 +7,39 @@
     <meta name="description" content="">
     <meta name="keywords" content="">
     <title></title>
-    
+    <link rel="stylesheet" type="text/css" href="css/main.css">
     <!--[if IE]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
   </head>
   <body>
-      <h1>Hello World!!</h1>
-	  
+    <h1>Hello World!!</h1>
 <?php
-// Database Functions 
+    // Database Functions 
 
-  require 'scripts/DB_Scripts.php';
-  db_connect();
-	
-  show_customers($dbh);
-  show_parts($dbh);
-  
-  disconnect_DB($dbh);
+    require 'scripts/DB_Scripts.php'; 
+    db_connect();
 ?>
+
+    <div id="containerBlock">
+	  <div id="customerPanel">
+<?php	
+        show_customers($dbh);
+?>
+	  </div>
+	  
+	  <div id="partsPanel">
+<?php
+    show_parts($dbh);
+?>
+	  </div>
+	  
+	  <div id="ordersPanel">
+	  </div>
+<?php
+    disconnect_DB($dbh);
+?>
+    </div>
     <h2>All code has been condensed to functions.</h2>
   </body>
 </html>
