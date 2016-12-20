@@ -98,10 +98,10 @@ function show_parts ($db) {
 
 function show_orders ($db) {
 
-//  $query_string = "SELECT * FROM Orders";
-//  $result = mysqli_query($db, $query_string);
-//  if (mysqli_num_rows($result) > 0) {
-//	echo mysqli_num_rows($result) . " Orders found</h3>\n"; 
+  $query_string = "SELECT * FROM Orders";
+  $result = mysqli_query($db, $query_string);
+  if (mysqli_num_rows($result) > 0) {
+	echo mysqli_num_rows($result) . " Orders found</h3>\n"; 
 
 	// build display table
 //	echo "<table>\n";
@@ -142,7 +142,7 @@ function show_orders ($db) {
 
 //  } else {
 //  		 echo "No Orders to show\n";
-//  	} 
+  	} 
   
  } // End function show_orders
 
