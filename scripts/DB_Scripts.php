@@ -120,11 +120,11 @@ function show_orders ($db) {
 	  echo "<td>$row[0]</td>\n";			 // Order ID
 	  
 	  // get Customer Name
-	  $query_string = "SELECT Customers.First, Customer.Last From Customers WHERE Customers.Cust_ID=$row[1]"; 
-	  $custResult = mysqli_query($db, $query_string);
-	  $cust = mysqli_fetch_row($custResult);
-	  echo "<td>$cust[0]</td>\n";
-	  echo "<td>$cust[1]</td>\n";
+//	  $query_string = "SELECT Customers.First, Customer.Last From Customers WHERE Customers.Cust_ID=$row[1]"; 
+//	  $custResult = mysqli_query($db, $query_string);
+//	  $cust = mysqli_fetch_row($custResult);
+//	  echo "<td>$cust[0]</td>\n";
+//	  echo "<td>$cust[1]</td>\n";
 	  
 //	  echo "<td>$row[2]</td>\n"; 			// Part ID
 	  
