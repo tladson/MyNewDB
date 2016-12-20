@@ -35,11 +35,13 @@
 	  </div>
 	  
 	  <div class="Panel">
+	    <h3>Placeholder for Order Tbl</h3>
 	  </div>
 <?php
     disconnect_DB($dbh);
 ?>
     </div>
+	<br style="clear:left;" />
     <h2>All code has been condensed to functions.</h2>
   </body>
 </html>
