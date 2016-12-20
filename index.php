@@ -23,6 +23,7 @@
 
     <div id="containerBlock">
 	  <div class="Panel">
+	    <center><p>Customers</p></center>
 <?php	
         show_customers($dbh);
 ?>
@@ -37,11 +38,11 @@
 	  <div class="Panel">
 	    <h3>Placeholder for Order Tbl</h3>
 	  </div>
+    </div>
+	<br style="clear:left;" />
 <?php
     disconnect_DB($dbh);
 ?>
-    </div>
-	<br style="clear:left;" />
     <h2>All code has been condensed to functions.</h2>
   </body>
 </html>
