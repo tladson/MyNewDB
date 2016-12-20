@@ -3,12 +3,12 @@
 
 .Panel {
    width: 33%;
-   border: red, solid, thin;
+   border: red solid thin;
    float:left;
  }
  
  #containerBlock {
    position: relative;
    width: 800px;
-   border: green, solid, thin;
+   border: green solid thin;
  }
