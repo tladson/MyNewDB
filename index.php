@@ -22,19 +22,19 @@
 ?>
 
     <div id="containerBlock">
-	  <div id="customerPanel">
+	  <div class="Panel">
 <?php	
         show_customers($dbh);
 ?>
 	  </div>
 	  
-	  <div id="partsPanel">
+	  <div class="Panel">
 <?php
     show_parts($dbh);
 ?>
 	  </div>
 	  
-	  <div id="ordersPanel">
+	  <div class="Panel">
 	  </div>
 <?php
     disconnect_DB($dbh);
