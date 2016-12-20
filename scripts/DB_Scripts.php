@@ -98,13 +98,13 @@ function show_parts ($db) {
 
 function show_orders ($db) {
 
-  $query_string = "SELECT * FROM Orders";
-  $result = mysqli_query($db, $query_string);
-  if (mysqli_num_rows($result) > 0) {
-	echo mysqli_num_rows($result) . " Orders found</h3>\n"; 
+//  $query_string = "SELECT * FROM Orders";
+//  $result = mysqli_query($db, $query_string);
+//  if (mysqli_num_rows($result) > 0) {
+//	echo mysqli_num_rows($result) . " Orders found</h3>\n"; 
 
 	// build display table
-	echo "<table>\n";
+//	echo "<table>\n";
 //	echo "<tr>\n";
 //	echo "<th>Order ID</th>\n";
 //	echo "<th>First</th>\n";
@@ -115,9 +115,9 @@ function show_orders ($db) {
 //	echo "<th>Cost</th>\n";
 //	echo "</tr>\n";
 	
-	while ($row = mysqli_fetch_row($result)) {
-	  echo "<tr>\n";
-	  echo "<td>$row[0]</td>\n";			 // Order ID
+//	while ($row = mysqli_fetch_row($result)) {
+//	  echo "<tr>\n";
+//	  echo "<td>$row[0]</td>\n";			 // Order ID
 	  
 	  // get Customer Name
 //	  $query_string = "SELECT Customers.First, Customer.Last From Customers WHERE Customers.Cust_ID=$row[1]"; 
@@ -136,14 +136,14 @@ function show_orders ($db) {
 	  
 //	  echo "<td>$row[3]</td>\n"; 			// Order Amount
 //	  echo "<td>$row[4]</td>\n";			// Order Total
-	  echo "</tr>\n";
-	}
-	echo "</table>\n";
+//	  echo "</tr>\n";
+//	}
+//	echo "</table>\n";
 
-  } else {
-  		 echo "No Orders to show\n";
-  	} 
+//  } else {
+//  		 echo "No Orders to show\n";
+//  	} 
   
-} // End function show_orders
+ } // End function show_orders
 
 ?>

@@ -40,7 +40,7 @@
 	  
 	  // Orders panel
 	  <div class="Panel">
-	    <center><h3>Orders<br />
+	    <center><h3>Orders<br /></h3>
 <?php
 	// show_oders($dbh);
 ?>
