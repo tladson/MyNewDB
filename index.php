@@ -23,17 +23,18 @@
 
     <div id="containerBlock">
 	  <div class="Panel">
-	    <center><p>Customers</p></center>
+	    <center><p>Customers<br />
 <?php	
         show_customers($dbh);
 ?>
-	  </div>
+	  </center></div>
 	  
 	  <div class="Panel">
+	    <center><p>Parts<br />
 <?php
     show_parts($dbh);
 ?>
-	  </div>
+	  </center></div>
 	  
 	  <div class="Panel">
 	    <h3>Placeholder for Order Tbl</h3>

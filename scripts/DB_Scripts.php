@@ -41,7 +41,7 @@ function show_customers($db) {
   $query_string = "SELECT * FROM Customers";
   $result = mysqli_query($db, $query_string);
   if (mysqli_num_rows($result) > 0) {
-	echo "Select returned " . mysqli_num_rows($result) . " rows.\n"; 
+	echo mysqli_num_rows($result) . " Customers found</p>";
 
 	// build display table
 	echo "<table>\n<tr>\n";
