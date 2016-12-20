@@ -42,7 +42,7 @@
 	  <div class="Panel">
 	    <center><h3>Orders<br />
 <?php
-	 show_oders($dbh);
+	// show_oders($dbh);
 ?>
 	  </center></div>
     </div>
