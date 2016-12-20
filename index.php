@@ -13,7 +13,7 @@
     <![endif]-->
   </head>
   <body>
-    <h1>Hello World!!</h1>
+    <center><h1>Customers Order Log</h1></center>
 <?php
     // Database Functions 
 
@@ -22,28 +22,33 @@
 ?>
 
     <div id="containerBlock">
+	  // Customers panel
 	  <div class="Panel">
-	    <center><p>Customers<br />
+	    <center><h3>Customers<br />
 <?php	
         show_customers($dbh);
 ?>
 	  </center></div>
 	  
+	  // Parts panel
 	  <div class="Panel">
-	    <center><p>Parts<br />
+	    <center><h3>Parts<br />
 <?php
     show_parts($dbh);
 ?>
 	  </center></div>
 	  
+	  // Orders panel
 	  <div class="Panel">
-	    <h3>Placeholder for Order Tbl</h3>
-	  </div>
+	    <center><h3>Orders<br />
+<?php
+	 show_oders($dbh);
+?>
+	  </center></div>
     </div>
 	<br style="clear:left;" />
 <?php
     disconnect_DB($dbh);
 ?>
-    <h2>All code has been condensed to functions.</h2>
   </body>
 </html>
