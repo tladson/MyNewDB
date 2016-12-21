@@ -48,9 +48,10 @@
 ?>
 
 	  </center></div>
+-->
     </div>
 	<br style="clear:left;" />
--->
+
 <?php
     disconnect_DB($dbh);
 ?>
