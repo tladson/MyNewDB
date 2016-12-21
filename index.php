@@ -55,5 +55,6 @@
 <?php
     disconnect_DB($dbh);
 ?>
+    <h3>Last Call for Alcohol!</h3>
   </body>
 </html>

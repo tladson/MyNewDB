@@ -14,8 +14,8 @@ function db_connect() {
 
   $dbh = mysqli_connect($dbhost, $username, $password, $dbname, $dbport); 
 
-  if (!$dbh){
-   	  echo "Sorry, no connection\n";
+//  if (!$dbh){
+//   	  echo "Sorry, no connection\n";
 
   // Check connection pre-5.2.9
   if (mysqli_connect_error()) {
