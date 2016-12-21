@@ -22,7 +22,7 @@
 ?>
 
     <div id="containerBlock">
-	  // Customers panel
+	  <!-- Customers panel -->
 	  <div class="Panel">
 	    <center><h3>Customers<br />
 <?php	
@@ -30,7 +30,7 @@
 ?>
 	  </center></div>
 	  
-	  // Parts panel
+	  <!-- Parts panel -->
 	  <div class="Panel">
 	    <center><h3>Parts<br />
 <?php
@@ -40,7 +40,7 @@
 
 
   
-	  // Orders panel
+	  <!-- Orders panel -->
 	  <div class="Panel">
 	    <center><h3>Orders  </h3>
 <?php
