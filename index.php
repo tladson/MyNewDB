@@ -31,7 +31,7 @@
 	  </center></div>
 	  
 	  <!-- Parts panel -->
-	  <div class="Panel" style="width:25%;">
+	  <div class="Panel" style="width:20%;">
 	    <center><h3>Parts<br />
 <?php
     show_parts($dbh);
@@ -41,8 +41,8 @@
 
   
 	  <!-- Orders panel -->
-	  <div class="Panel" style="width:40%;">
-	    <center><h3>Orders  </h3>
+	  <div class="Panel" style="width:45%;">
+	    <center><h3>Orders<br />  
 <?php
 	  show_orders($dbh);
 ?>

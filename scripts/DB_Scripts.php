@@ -104,13 +104,13 @@ function show_orders ($db) {
 	echo mysqli_num_rows($result) . " Orders found</h3>\n"; 
 
 	// build display table
-	echo "<table>\n";
+	echo "<table id=\"ordersTable\">\n";
 	echo "<tr>\n";
-	echo "<th>Order ID</th>\n";
+	echo "<th style=\"width:70px;\">Order ID</th>\n";
 	echo "<th>First</th>\n";
 	echo "<th>Last</th>\n";
 	echo "<th>Part ID</th>\n";
-	echo "<th>Part Name</th>\n";	
+	echo "<th style=\"width:140px;\">Part Name</th>\n";	
 	echo "<th>Amount</th>\n";
 	echo "<th>Cost</th>\n";
 	echo "</tr>\n";
