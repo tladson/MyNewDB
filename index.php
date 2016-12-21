@@ -29,7 +29,7 @@
         show_customers($dbh);
 ?>
 	  </center></div>
-	  
+<!--	  
 	  // Parts panel
 	  <div class="Panel">
 	    <center><h3>Parts<br />

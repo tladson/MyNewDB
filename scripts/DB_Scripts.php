@@ -66,7 +66,7 @@ function show_customers($db) {
   
 } // End function show_customers
 
-
+/*
 function show_parts ($db) {
 
   $query_string = "SELECT * FROM Parts";
