@@ -56,6 +56,6 @@
 <?php
     disconnect_DB($dbh);
 ?>
-    <h3>Last Call for Alcohol!</h3>
+    <h3>Add a Customer to the DB</h3>
   </body>
 </html>
