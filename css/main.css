@@ -3,13 +3,21 @@
 
 .Panel {
    width: 25%;
-   border: red solid thin;
    float:left;
+ }
+ 
+ #orderPanel { 
+   position:absolute;
+   right:0px;
+   width:45%;
  }
  
  #containerBlock {
    position: relative;
    width: 1400px;
+   border: black solid thin;
+   height:auto;
+   overflow:auto;
  }
  
  table {

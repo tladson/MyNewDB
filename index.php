@@ -22,6 +22,7 @@
 ?>
 
     <div id="containerBlock">
+	
 	  <!-- Customers panel -->
 	  <div class="Panel">
 	    <center><h3>Customers<br />
@@ -41,7 +42,7 @@
 
   
 	  <!-- Orders panel -->
-	  <div class="Panel" style="width:45%;">
+	  <div id="orderPanel">
 	    <center><h3>Orders<br />  
 <?php
 	  show_orders($dbh);
