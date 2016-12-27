@@ -57,5 +57,15 @@
     disconnect_DB($dbh);
 ?>
     <h3>Add a Customer to the DB</h3>
+	<form>
+	  First Name:<br>
+	  <input type="text" name="firstname"><br>
+	  Last Name:<br>
+	  <input type="text" name="lastname"><br>
+	  Age:<br>
+	  <input type="text" name="age"><br>
+	  SSN:<br>
+	  <input type="text" name="ssn"><br>	
+	</form> 
   </body>
 </html>
