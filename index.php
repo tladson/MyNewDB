@@ -53,9 +53,6 @@
     </div>
 	<br style="clear:left;" />
 
-<?php
-    disconnect_DB($dbh);
-?>
 
 <?php
 	echo "<form action=\"addCustomer($dbh)\">";
@@ -73,5 +70,9 @@
 		<input type="submit" value="Submit">
 	  </fieldset>
 	</form> 
+	
+<?php
+    disconnect_DB($dbh);
+?>
   </body>
 </html>
