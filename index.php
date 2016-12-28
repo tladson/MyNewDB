@@ -56,16 +56,22 @@
 <?php
     disconnect_DB($dbh);
 ?>
-    <h3>Add a Customer to the DB</h3>
-	<form>
-	  First Name:<br>
-	  <input type="text" name="firstname"><br>
-	  Last Name:<br>
-	  <input type="text" name="lastname"><br>
-	  Age:<br>
-	  <input type="text" name="age"><br>
-	  SSN:<br>
-	  <input type="text" name="ssn"><br>	
+
+<?php
+	echo "<form action=\"addCustomer($dbh)\">";
+?>
+	  <fieldset>
+	    <legend>Add a Customer to the DB</legend>
+	    First Name:<br>
+	    <input type="text" name="firstname"><br>
+	    Last Name:<br>
+	    <input type="text" name="lastname"><br>
+	    Age:<br>
+	    <input type="text" name="age"><br>
+	    SSN:<br>
+	    <input type="text" name="ssn"><br>	
+		<input type="submit" value="Submit">
+	  </fieldset>
 	</form> 
   </body>
 </html>
