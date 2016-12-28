@@ -53,10 +53,12 @@
     </div>
 	<br style="clear:left;" />
 
-
+<!--
 <?php
 	echo "<form action=\"addCustomer($dbh)\">";
 ?>
+-->
+    <form action="addCustomer()">
 	  <fieldset>
 	    <legend>Add a Customer to the DB</legend>
 	    First Name:<br>
