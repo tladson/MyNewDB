@@ -27,3 +27,7 @@
  table#ordersTable th { 
     width: 60px; 
   }
+  
+ .error {
+    text-color: red;
+  }

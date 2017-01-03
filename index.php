@@ -19,6 +19,36 @@
 
     require 'scripts/DB_Scripts.php'; 
     db_connect();
+	$fnameErr = $lnameErr = $ageErr = $ssnErr = "";
+	$fname = $lname = $age = $ssn = "";
+	
+	if ($_SERVER["REQUEST_METHOD"] == "POST") {
+	
+	  if (empty($_POST["firstname"])) {
+	    $fnameErr = "First Name is required"; 
+	  } else {
+	      $fname = process_input($_POST["firstname"]);
+		}
+		
+      if (empty($_POST["lastname"])) {
+	    $lnameErr = "Last Name is required"; 
+	  } else {
+	      $lname = process_input($_POST["lastname"]);
+		}
+		
+	  if (empty($_POST["custage"])) {
+	    $ageErr = "Age is required"; 
+	  } else {
+	      $age = process_input($_POST["custage"]);
+		}
+		
+	  if (empty($_POST["custssn"])) {
+	    $ssnErr = "Age is required"; 
+	  } else {
+	      $ssn = process_input($_POST["custssn"]);
+		}	
+		
+	}
 ?>
 
     <div class="containerBlock">
@@ -60,14 +90,19 @@
 	      <fieldset>
 	        <legend>Add a Customer to the DB</legend>
 	        First Name:<br>
-	        <input type="text" name="firstname"><br>
+	        <input type="text" name="firstname">
+			<span class="error">* <?php echo $fnameErr; ?></span>
+			<br>
 	        Last Name:<br>
 	        <input type="text" name="lastname"><br>
+			<span class="error">* <?php echo $lnameErr; ?></span>
 	        Age:<br>
-	        <input type="text" name="age"><br>
+	        <input type="text" name="custage"><br>
+			<span class="error">* <?php echo $ageErr; ?></span>
 	        SSN:<br>
-	        <input type="text" name="ssn"><br>	
-		    <input type="submit" value="Submit">
+	        <input type="text" name="custssn"><br>	
+			<span class="error">* <?php echo $ssnErr; ?></span>
+	    <input type="submit" value="Submit">
 	      </fieldset>
 	    </form> 
 	  </div>

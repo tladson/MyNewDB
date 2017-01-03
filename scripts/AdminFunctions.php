@@ -31,4 +31,11 @@ function disconnect_DB ($db) {
     echo "An error occurred: No DB connection to close";
 }
 
+function process_input ($data) {
+  $data = trim($data);
+  $data = stripslashes($data);
+  $daat = htmlspecialchars($data);
+  return $data;
+}
+
 ?>
