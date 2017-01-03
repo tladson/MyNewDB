@@ -12,7 +12,7 @@
    width:45%;
  }
  
- #containerBlock {
+ .containerBlock {
    position: relative;
    width: 1400px;
    border: black solid thin;

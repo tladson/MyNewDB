@@ -21,7 +21,7 @@
     db_connect();
 ?>
 
-    <div id="containerBlock">
+    <div class="containerBlock">
 	
 	  <!-- Customers panel -->
 	  <div class="Panel">
@@ -53,20 +53,56 @@
     </div>
 	<br style="clear:left;" />
 
-    <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
-	  <fieldset>
-	    <legend>Add a Customer to the DB</legend>
-	    First Name:<br>
-	    <input type="text" name="firstname"><br>
-	    Last Name:<br>
-	    <input type="text" name="lastname"><br>
-	    Age:<br>
-	    <input type="text" name="age"><br>
-	    SSN:<br>
-	    <input type="text" name="ssn"><br>	
-		<input type="submit" value="Submit">
-	  </fieldset>
-	</form> 
+	<div class="containerBlock"> <!-- User Input -->
+	
+	  <div class="Panel">
+        <form name="AddCustForm" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+	      <fieldset>
+	        <legend>Add a Customer to the DB</legend>
+	        First Name:<br>
+	        <input type="text" name="firstname"><br>
+	        Last Name:<br>
+	        <input type="text" name="lastname"><br>
+	        Age:<br>
+	        <input type="text" name="age"><br>
+	        SSN:<br>
+	        <input type="text" name="ssn"><br>	
+		    <input type="submit" value="Submit">
+	      </fieldset>
+	    </form> 
+	  </div>
+	  
+	  <div class="Panel">
+        <form name="AddPartForm" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+	      <fieldset>
+	        <legend>Add a Part to the DB</legend>
+	        Part Name:<br>
+	        <input type="text" name="partname"><br>
+	        Price:<br>
+	        <input type="text" name="partprice"><br>	
+		    <input type="submit" value="Submit">
+	      </fieldset>
+	    </form> 
+	  </div>
+	  
+	  <div class="Panel">
+        <form name="AddOrderForm" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+	      <fieldset>
+	        <legend>Place an Order</legend>
+	        First Name:<br>
+	        <input type="text" name="firstname"><br>
+	        Last Name:<br>
+	        <input type="text" name="lastname"><br>
+			Part Name:<br>
+	        <input type="text" name="partname"><br>
+			Amount:<br>	
+			<input type="text" name="Quantity"><br>
+		    <input type="submit" value="Submit">
+	      </fieldset>
+	    </form> 
+	  </div>
+	
+	</div>  <!-- End User Input -->
 	
 <?php
     disconnect_DB($dbh);
