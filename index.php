@@ -51,7 +51,11 @@
 		$add_to_DB = false;
 	  } else {
 	      $ssn = process_input($_POST["custssn"]);
-		}	
+		}
+		
+	  if ($add_to_DB) {
+	    $result = add_customer($dbh, $fname, $lname, $age, $ssn);
+	  }
 		
 	}
 ?>
@@ -111,7 +115,10 @@
 			<span class="error"><?php echo $ssnErr; ?></span>
 			<br><br>
 	        <input type="submit" value="Submit">
-			<span class="error"><?php if ($add_to_DB) echo "Customer added!"; ?></span>
+			<span class="error"><?php 
+			  if ($result) echo "Customer added!"
+			    else echo "Customer could not be added to DB";
+			  ?></span>
 	      </fieldset>
 	    </form> 
 	  </div>

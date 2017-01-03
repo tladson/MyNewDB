@@ -38,4 +38,16 @@ function process_input ($data) {
   return $data;
 }
 
+function add_customer ($db, $fn, $ln, $age, $ssn) {
+  // add a customer to the DB
+  
+  if ($db) {
+    $query_string = "INSERT INTO Customers(First, Last, Age, SSN)
+VALUES($fn, $ln, $age, $ssn)";
+	if (mysqli_query($db, $query_string))
+	  return 1;
+    else 
+	  return 0;
+}
+
 ?>
