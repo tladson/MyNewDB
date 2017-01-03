@@ -25,25 +25,25 @@
 	if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	
 	  if (empty($_POST["firstname"])) {
-	    $fnameErr = "First Name is required"; 
+	    $fnameErr = "* First Name is required"; 
 	  } else {
 	      $fname = process_input($_POST["firstname"]);
 		}
 		
       if (empty($_POST["lastname"])) {
-	    $lnameErr = "Last Name is required"; 
+	    $lnameErr = "* Last Name is required"; 
 	  } else {
 	      $lname = process_input($_POST["lastname"]);
 		}
 		
 	  if (empty($_POST["custage"])) {
-	    $ageErr = "Age is required"; 
+	    $ageErr = "* Age is required"; 
 	  } else {
 	      $age = process_input($_POST["custage"]);
 		}
 		
 	  if (empty($_POST["custssn"])) {
-	    $ssnErr = "Age is required"; 
+	    $ssnErr = "* SSN is required"; 
 	  } else {
 	      $ssn = process_input($_POST["custssn"]);
 		}	
@@ -91,19 +91,19 @@
 	        <legend>Add a Customer to the DB</legend>
 	        First Name:<br>
 	        <input type="text" name="firstname">
-			<span class="error">* <?php echo $fnameErr; ?></span>
+			<span class="error"><?php echo $fnameErr; ?></span>
 			<br>
 	        Last Name:<br>
-	        <input type="text" name="lastname"><br>
-			<span class="error">* <?php echo $lnameErr; ?></span>
+	        <input type="text" name="lastname">
+			<span class="error"><?php echo $lnameErr; ?></span>
 			<br>
 	        Age:<br>
-	        <input type="text" name="custage"><br>
-			<span class="error">* <?php echo $ageErr; ?></span>
+	        <input type="text" name="custage">
+			<span class="error"><?php echo $ageErr; ?></span>
 			<br>
 	        SSN:<br>
-	        <input type="text" name="custssn"><br>	
-			<span class="error">* <?php echo $ssnErr; ?></span>
+	        <input type="text" name="custssn">	
+			<span class="error"><?php echo $ssnErr; ?></span>
 			<br>
 	        <input type="submit" value="Submit">
 	      </fieldset>
