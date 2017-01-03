@@ -31,8 +31,4 @@ function disconnect_DB ($db) {
     echo "An error occurred: No DB connection to close";
 }
 
-function addCustomer ($db) {
-  // Add Customer info to DB
-}
-
 ?>
