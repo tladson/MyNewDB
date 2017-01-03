@@ -21,15 +21,15 @@
     db_connect();
 	$fnameErr = $lnameErr = $ageErr = $ssnErr = "";
 	$fname = $lname = $age = $ssn = "";
-	$add_to_DB = true;
+	$add_to_DB = false;
 	
 	if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	
 	  if (empty($_POST["firstname"])) {
 	    $fnameErr = "* First Name is required"; 
-		$add_to_DB = false;
 	  } else {
 	      $fname = process_input($_POST["firstname"]);
+		  $add_to_DB = true;
 		}
 		
       if (empty($_POST["lastname"])) {
