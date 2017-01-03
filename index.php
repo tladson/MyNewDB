@@ -21,29 +21,34 @@
     db_connect();
 	$fnameErr = $lnameErr = $ageErr = $ssnErr = "";
 	$fname = $lname = $age = $ssn = "";
+	$add_to_DB = true;
 	
 	if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	
 	  if (empty($_POST["firstname"])) {
 	    $fnameErr = "* First Name is required"; 
+		$add_to_DB = false;
 	  } else {
 	      $fname = process_input($_POST["firstname"]);
 		}
 		
       if (empty($_POST["lastname"])) {
 	    $lnameErr = "* Last Name is required"; 
+		$add_to_DB = false;
 	  } else {
 	      $lname = process_input($_POST["lastname"]);
 		}
 		
 	  if (empty($_POST["custage"])) {
-	    $ageErr = "* Age is required"; 
+	    $ageErr = "* Age is required";
+		$add_to_DB = false; 
 	  } else {
 	      $age = process_input($_POST["custage"]);
 		}
 		
 	  if (empty($_POST["custssn"])) {
 	    $ssnErr = "* SSN is required"; 
+		$add_to_DB = false;
 	  } else {
 	      $ssn = process_input($_POST["custssn"]);
 		}	
@@ -104,8 +109,9 @@
 	        SSN:<br>
 	        <input type="text" name="custssn">	
 			<span class="error"><?php echo $ssnErr; ?></span>
-			<br>
+			<br><br>
 	        <input type="submit" value="Submit">
+			<span class="error"><?php if ($add_to_DB) echo "Customer added!"; ?></span>
 	      </fieldset>
 	    </form> 
 	  </div>
