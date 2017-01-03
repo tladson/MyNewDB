@@ -96,13 +96,16 @@
 	        Last Name:<br>
 	        <input type="text" name="lastname"><br>
 			<span class="error">* <?php echo $lnameErr; ?></span>
+			<br>
 	        Age:<br>
 	        <input type="text" name="custage"><br>
 			<span class="error">* <?php echo $ageErr; ?></span>
+			<br>
 	        SSN:<br>
 	        <input type="text" name="custssn"><br>	
 			<span class="error">* <?php echo $ssnErr; ?></span>
-	    <input type="submit" value="Submit">
+			<br>
+	        <input type="submit" value="Submit">
 	      </fieldset>
 	    </form> 
 	  </div>
