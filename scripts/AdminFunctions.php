@@ -34,7 +34,7 @@ function disconnect_DB ($db) {
 function process_input ($data) {
   $data = trim($data);
   $data = stripslashes($data);
-  $daat = htmlspecialchars($data);
+  $data = htmlspecialchars($data);
   return $data;
 }
 

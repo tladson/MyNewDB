@@ -116,7 +116,7 @@
 			<br><br>
 	        <input type="submit" value="Submit">
 			<span class="error"><?php 
-			  if ($result) echo "Customer added!"
+			  if ($result) echo "Customer added!";
 			    else echo "Customer could not be added to DB";
 			  ?></span>
 	      </fieldset>
