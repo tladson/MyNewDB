@@ -20,7 +20,7 @@
     require 'scripts/DB_Scripts.php'; 
     db_connect();
 	$fnameErr = $lnameErr = $ageErr = $ssnErr = "";
-	$fname = $lname = $age = $ssn = "";
+	$fname = $lname = $age = $ssn = $result = "";
 	$add_to_DB = false;
 	
 	if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -53,9 +53,9 @@
 	      $ssn = process_input($_POST["custssn"]);
 		}
 		
-	//  if ($add_to_DB) {
-	//    $result = add_customer($dbh, $fname, $lname, $age, $ssn);
-	//  }
+	  if ($add_to_DB) {
+	    $result = add_customer($dbh, $fname, $lname, $age, $ssn);
+	  }
 		
 	}
 ?>
@@ -116,8 +116,13 @@
 			<br><br>
 	        <input type="submit" value="Submit">
 			<span class="error"><?php 
-			  if ($result) echo "Customer added!";
-			    else echo "Customer could not be added to DB";
+			  if ($add_to_DB) {
+			    if ($result){
+				  echo "Customer added!";
+				} else {
+				    echo "Customer could not be added to DB";
+				  }
+			  }
 			  ?></span>
 	      </fieldset>
 	    </form> 

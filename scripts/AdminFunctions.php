@@ -10,7 +10,8 @@ function db_connect() {
   
   global $dbh;
 
-  $dbh = mysqli_connect($dbhost, $username, $password, $dbname, $dbport); 
+  if (!$dbh)
+    $dbh = mysqli_connect($dbhost, $username, $password, $dbname, $dbport); 
 
 //  if (!$dbh){
 //   	  echo "Sorry, no connection\n";
@@ -38,16 +39,21 @@ function process_input ($data) {
   return $data;
 }
 
+
 function add_customer ($db, $fn, $ln, $age, $ssn) {
   // add a customer to the DB
   
   if ($db) {
-    $query_string = "INSERT INTO Customers (First, Last, Age, SSN)
-VALUES ($fn, $ln, $age, $ssn)";
-	if (mysqli_query($db, $query_string))
+    $query_string = "INSERT INTO Customers " .
+	"(First, Last, Age, SSN) " .
+    "VALUES ('$fn', '$ln', $age, $ssn)";
+	if (mysqli_query($db, $query_string)) {
 	  return 1;
-    else 
-	  return 0;
+    } else {
+	    echo "Error adding record: " . mysqli_error($db);
+	    return 0;
+	  }
+  }
 }
 
 ?>
