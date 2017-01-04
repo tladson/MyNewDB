@@ -53,9 +53,9 @@
 	      $ssn = process_input($_POST["custssn"]);
 		}
 		
-	  if ($add_to_DB) {
-	    $result = add_customer($dbh, $fname, $lname, $age, $ssn);
-	  }
+	//  if ($add_to_DB) {
+	//    $result = add_customer($dbh, $fname, $lname, $age, $ssn);
+	//  }
 		
 	}
 ?>
