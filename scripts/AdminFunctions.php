@@ -56,4 +56,8 @@ function add_customer ($db, $fn, $ln, $age, $ssn) {
   }
 }
 
+function add_part ($db, $part, $price) {
+  // add a part to the Parts table
+}
+
 ?>
