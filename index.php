@@ -60,39 +60,7 @@
 	}
 ?>
 
-    <div class="containerBlock">
-	
-	  <!-- Customers panel -->
-	  <div class="Panel">
-	    <center><h3>Customers<br />
-<?php	
-        show_customers($dbh);
-?>
-	  </center></div>
-	  
-	  <!-- Parts panel -->
-	  <div class="Panel" style="width:20%;">
-	    <center><h3>Parts<br />
-<?php
-    show_parts($dbh);
-?>
-	  </center></div>
-
-
-  
-	  <!-- Orders panel -->
-	  <div id="orderPanel">
-	    <center><h3>Orders<br />  
-<?php
-	  show_orders($dbh);
-?>
-
-	  </center></div>
-
-    </div>
-	<br style="clear:left;" />
-
-	<div class="containerBlock"> <!-- User Input -->
+   <div class="containerBlock"> <!-- User Input -->
 	
 	  <div class="Panel">
         <form name="AddCustForm" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
@@ -159,6 +127,39 @@
 	  </div>
 	
 	</div>  <!-- End User Input -->
+
+    <div class="containerBlock">
+	
+	  <!-- Customers panel -->
+	  <div class="Panel">
+	    <center><h3>Customers<br />
+<?php	
+        show_customers($dbh);
+?>
+	  </center></div>
+	  
+	  <!-- Parts panel -->
+	  <div class="Panel" style="width:20%;">
+	    <center><h3>Parts<br />
+<?php
+    show_parts($dbh);
+?>
+	  </center></div>
+
+
+  
+	  <!-- Orders panel -->
+	  <div id="orderPanel">
+	    <center><h3>Orders<br />  
+<?php
+	  show_orders($dbh);
+?>
+
+	  </center></div>
+
+    </div>
+	<br style="clear:left;" />
+
 	
 <?php
     disconnect_DB($dbh);
