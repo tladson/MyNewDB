@@ -42,9 +42,10 @@ function process_input ($data) {
 function add_customer ($db) {
   // add a customer to the DB
   
-  global $fnameErr, $lnameErr, $ageErr,$ssnErr = "";
-  $fname = $lname = $age = $ssn = "";
-  global $add_to_DB = false;
+  global $fnameErr, $lnameErr, $ageErr, $ssnErr, $add_to_DB;
+  global $fname, $lname, $age, $ssn;
+//  $fname = $lname = $age = $ssn = "";
+//  global $add_to_DB = false;
   
   if (empty($_POST["firstname"])) {
     $fnameErr = "* First Name is required"; 
@@ -79,7 +80,7 @@ function add_customer ($db) {
     if ($db) {
       $query_string = "INSERT INTO Customers " .
 	  "(First, Last, Age, SSN) " .
-      "VALUES ('$fn', '$ln', $age, $ssn)";
+      "VALUES ('$fname', '$lname', $age, $ssn)";
 	  if (mysqli_query($db, $query_string)) {
 	    return 1;
       } else {
