@@ -19,12 +19,12 @@
 
     require 'scripts/DB_Scripts.php'; 
     db_connect();
-	$fnameErr = $lnameErr = $ageErr = $ssnErr = "";
-	$fname = $lname = $age = $ssn = $result = "";
-	$add_to_DB = false;
+//	$fnameErr = $lnameErr = $ageErr = $ssnErr = "";
+//	$fname = $lname = $age = $ssn = $result = "";
+//	$add_to_DB = false;
 	
 	if ($_SERVER["REQUEST_METHOD"] == "POST") {
-	
+/*	
 	  if (empty($_POST["firstname"])) {
 	    $fnameErr = "* First Name is required"; 
 	  } else {
@@ -56,14 +56,19 @@
 	  if ($add_to_DB) {
 	    $result = add_customer($dbh, $fname, $lname, $age, $ssn);
 	  }
-		
+*/	
+      switch ($form_type) (
+	    case "CUST":
+          $result = add_customer($dbh);
+		  break;
+	  } 
 	}
 ?>
 
    <div class="containerBlock"> <!-- User Input -->
 	
 	  <div class="Panel">
-        <form name="AddCustForm" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+        <form name="AddCustForm" method="post" action="<?php $form_type="CUST"; echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
 	      <fieldset>
 	        <legend>Add a Customer to the DB</legend>
 	        First Name:<br>
@@ -84,7 +89,7 @@
 			<br><br>
 	        <input type="submit" value="Submit">
 			<span class="error"><?php 
-			  if ($add_to_DB) {
+			  if ($add_to_DB && $form_type == "CUST") {
 			    if ($result){
 				  echo "Customer added!";
 				} else {
@@ -163,6 +168,7 @@
 	
 <?php
     disconnect_DB($dbh);
+    $form_type = "";
 ?>
   </body>
 </html>
