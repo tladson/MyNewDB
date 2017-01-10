@@ -19,8 +19,8 @@
 
     require 'scripts/DB_Scripts.php'; 
     db_connect();
-	$fnameErr = $lnameErr = $ageErr = $ssnErr = "";
-	$fname = $lname = $age = $ssn = $result = "";
+	$fnameErr = $lnameErr = $ageErr = $ssnErr = $pnameErr = $ppriceErr = "";
+	$fname = $lname = $age = $ssn = $pname = $pprice = $result = "";
 	$add_to_DB = false;
 	
 	if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -28,6 +28,9 @@
       switch ($_GET["form_type"]) {
 	    case "CUST":
           $result = add_customer($dbh);
+		  break;
+		case "PART":
+		  $result = add_part($dbh);
 		  break;
 		default:
 		  echo "form_type not set properly";
@@ -38,7 +41,7 @@
    <div class="containerBlock"> <!-- User Input -->
 	
 	  <div class="Panel">
-        <form name="AddCustForm" method="post" action="<?php echo $_SERVER['PHP_SELF'] . "?form_type=CUST";?>">
+        <form name="AddCustForm" method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) . "?form_type=CUST";?>">
 	      <fieldset>
 	        <legend>Add a Customer to the DB</legend>
 	        First Name:<br>
@@ -58,15 +61,7 @@
 			<span class="error"><?php echo $ssnErr; ?></span>
 			<br><br>
 	        <input type="submit" value="Submit">
-			<span class="error"><?php report_status($result, $add_to_DB, $_GET["form_type"]);
-			 // if ($add_to_DB && $_GET["form_type"] == "CUST") {
-			 //  if ($result){
-			//	  echo "Customer added!";
-			//	} else {
-			//	    echo "Customer could not be added to DB";
-			//	  }
-			//  }
-			  ?></span>
+			<span class="error"><?php report_status($result, $add_to_DB, $_GET["form_type"]); ?></span>
 	      </fieldset>
 	    </form> 
 	  </div>
@@ -76,10 +71,14 @@
 	      <fieldset>
 	        <legend>Add a Part to the DB</legend>
 	        Part Name:<br>
-	        <input type="text" name="partname"><br>
+	        <input type="text" name="partname">
+			<span class="error"><?php echo $pnameErr; ?></span>
 	        Price:<br>
-	        <input type="text" name="partprice"><br>	
+	        <input type="text" name="partprice">
+			<span class="error"><?php echo $ppriceErr; ?></span>	
+			<br><br>
 		    <input type="submit" value="Submit">
+			<span class="error"><?php report_status($result, $add_to_DB, $_GET["form_type"]); ?></span>
 	      </fieldset>
 	    </form> 
 	  </div>

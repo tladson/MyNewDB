@@ -13,9 +13,6 @@ function db_connect() {
   if (!$dbh)
     $dbh = mysqli_connect($dbhost, $username, $password, $dbname, $dbport); 
 
-//  if (!$dbh){
-//   	  echo "Sorry, no connection\n";
-
   // Check connection pre-5.2.9
   if (mysqli_connect_error()) {
     die("Database connection failed: " . mysqli_connect_error());
@@ -44,8 +41,6 @@ function add_customer ($db) {
   
   global $fnameErr, $lnameErr, $ageErr, $ssnErr, $add_to_DB;
   global $fname, $lname, $age, $ssn;
-//  $fname = $lname = $age = $ssn = "";
-//  global $add_to_DB = false;
   
   if (empty($_POST["firstname"])) {
     $fnameErr = "* First Name is required"; 
