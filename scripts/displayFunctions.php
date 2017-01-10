@@ -112,5 +112,19 @@ function show_orders ($db) {
   	} 
   
  } // End function show_orders
+ 
+
+ function report_status ($status, $addFlag, $table) {
+   if ($addFlag) 
+     switch ($table) {
+	   case "CUST": 
+	     if ($status){
+				  echo "Customer added!";
+				} else {
+				    echo "Customer could not be added to DB";
+				  }
+		 break;
+	} // end switch
+ } // end function report_status
 
 ?>

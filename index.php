@@ -24,39 +24,7 @@
 	$add_to_DB = false;
 	
 	if ($_SERVER["REQUEST_METHOD"] == "POST") {
-/*	
-	  if (empty($_POST["firstname"])) {
-	    $fnameErr = "* First Name is required"; 
-	  } else {
-	      $fname = process_input($_POST["firstname"]);
-		  $add_to_DB = true;
-		}
-		
-      if (empty($_POST["lastname"])) {
-	    $lnameErr = "* Last Name is required"; 
-		$add_to_DB = false;
-	  } else {
-	      $lname = process_input($_POST["lastname"]);
-		}
-		
-	  if (empty($_POST["custage"])) {
-	    $ageErr = "* Age is required";
-		$add_to_DB = false; 
-	  } else {
-	      $age = process_input($_POST["custage"]);
-		}
-		
-	  if (empty($_POST["custssn"])) {
-	    $ssnErr = "* SSN is required"; 
-		$add_to_DB = false;
-	  } else {
-	      $ssn = process_input($_POST["custssn"]);
-		}
-		
-	  if ($add_to_DB) {
-	    $result = add_customer($dbh, $fname, $lname, $age, $ssn);
-	  }
-*/	
+
       switch ($_GET["form_type"]) {
 	    case "CUST":
           $result = add_customer($dbh);
@@ -90,14 +58,14 @@
 			<span class="error"><?php echo $ssnErr; ?></span>
 			<br><br>
 	        <input type="submit" value="Submit">
-			<span class="error"><?php 
-			  if ($add_to_DB && $_GET["form_type"] == "CUST") {
-			    if ($result){
-				  echo "Customer added!";
-				} else {
-				    echo "Customer could not be added to DB";
-				  }
-			  }
+			<span class="error"><?php report_status($result, $add_to_DB, $_GET["form_type"]);
+			 // if ($add_to_DB && $_GET["form_type"] == "CUST") {
+			 //  if ($result){
+			//	  echo "Customer added!";
+			//	} else {
+			//	    echo "Customer could not be added to DB";
+			//	  }
+			//  }
 			  ?></span>
 	      </fieldset>
 	    </form> 
