@@ -22,10 +22,11 @@
 	$fnameErr = $lnameErr = $ageErr = $ssnErr = $pnameErr = $ppriceErr = "";
 	$fname = $lname = $age = $ssn = $pname = $pprice = $result = "";
 	$add_to_DB = false;
+	$ftype = $_GET["form_type"];
 	
 	if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-      switch ($_GET["form_type"]) {
+      switch ($ftype) {
 	    case "CUST":
           $result = add_customer($dbh);
 		  break;
@@ -61,7 +62,7 @@
 			<span class="error"><?php echo $ssnErr; ?></span>
 			<br><br>
 	        <input type="submit" value="Submit">
-			<span class="error"><?php report_status($result, $add_to_DB, $_GET["form_type"]); ?></span>
+			<span class="error"><?php if ($ftype == 'CUST') report_status($result, $add_to_DB, $ftype); ?></span>
 	      </fieldset>
 	    </form> 
 	  </div>
@@ -79,7 +80,7 @@
 			<span class="error"><?php echo $ppriceErr; ?></span>	
 			<br><br>
 		    <input type="submit" value="Submit">
-			<span class="error"><?php report_status($result, $add_to_DB, $_GET["form_type"]); ?></span>
+			<span class="error"><?php if ($ftype == 'PART') report_status($result, $add_to_DB, $ftype); ?></span>
 	      </fieldset>
 	    </form> 
 	  </div>
