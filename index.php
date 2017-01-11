@@ -67,12 +67,13 @@
 	  </div>
 	  
 	  <div class="Panel">
-        <form name="AddPartForm" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+        <form name="AddPartForm" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) . "?form_type=PART";?>">
 	      <fieldset>
 	        <legend>Add a Part to the DB</legend>
 	        Part Name:<br>
 	        <input type="text" name="partname">
 			<span class="error"><?php echo $pnameErr; ?></span>
+			<br>
 	        Price:<br>
 	        <input type="text" name="partprice">
 			<span class="error"><?php echo $ppriceErr; ?></span>	

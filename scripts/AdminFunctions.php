@@ -85,8 +85,38 @@ function add_customer ($db) {
     }
 }
 
-function add_part ($db, $part, $price) {
+function add_part ($db) {
   // add a part to the Parts table
+  
+  global $pnameErr, $ppriceErr;
+  global $pname, $pprice, $add_to_DB;
+  
+  if (empty($_POST["partname"])) {
+    $pnameErr = "* The Part's name is required"; 
+	} else {
+	    $pname = process_input($_POST["partname"]);
+		$add_to_DB = true;
+      }
+		
+  if (empty($_POST["partprice"])) {
+	$ppriceErr = "* Price of part required"; 
+    $add_to_DB = false;
+	} else {
+	    $pprice = process_input($_POST["partprice"]);
+      }
+	  
+  if ($add_to_DB)
+    if ($db) {
+      $query_string = "INSERT INTO Parts " .
+	  "(Name, Price) " .
+      "VALUES ('$pname', $pprice)";
+	  if (mysqli_query($db, $query_string)) {
+	    return 1;
+      } else {
+	      echo "Error adding record: " . mysqli_error($db);
+	      return 0;
+	    }
+    }
 }
 
 ?>

@@ -124,6 +124,13 @@ function show_orders ($db) {
 				    echo "Customer could not be added to DB";
 				  }
 		 break;
+	   case "PART":
+	     if ($status){
+				  echo "Part added!";
+				} else {
+				    echo "The part could not be added to DB";
+				  }
+		 break;
 	} // end switch
  } // end function report_status
 
