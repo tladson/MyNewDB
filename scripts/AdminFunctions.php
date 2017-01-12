@@ -83,7 +83,7 @@ function add_customer ($db) {
 	      return 0;
 	    }
     }
-}
+}  // End Function add_customer
 
 function add_part ($db) {
   // add a part to the Parts table
@@ -117,6 +117,43 @@ function add_part ($db) {
 	      return 0;
 	    }
     }
-}
+}  // End Function add_part
+
+
+function add_order ($db) {
+  // add an order to the Orders table
+  
+  global $fnameErr, $lnameErr, $pnameErr, $amtErr;
+  global $fname, $lname, $pname, $amt, $add_to_DB;
+  
+  if (empty($_POST["firstname"])) {
+    $fnameErr = "* First Name is required"; 
+	} else {
+	    $fname = process_input($_POST["firstname"]);
+		$add_to_DB = true;
+      }
+		
+  if (empty($_POST["lastname"])) {
+	$lnameErr = "* Last Name is required"; 
+    $add_to_DB = false;
+	} else {
+	    $lname = process_input($_POST["lastname"]);
+	  }
+		
+  if (empty($_POST["partname"])) {
+    $pnameErr = "* The Part's name is required"; 
+	$add_to_DB = false;
+	} else {
+	    $pname = process_input($_POST["partname"]);
+	  }
+		
+  if (empty($_POST["amount"])) {
+    $amtErr = "* The quantity is required";
+	$add_to_DB = false; 
+	} else {
+	    $amt = process_input($_POST["amount"]);
+      }	
+
+}  // end Function add_order
 
 ?>

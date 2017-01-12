@@ -19,8 +19,8 @@
 
     require 'scripts/DB_Scripts.php'; 
     db_connect();
-	$fnameErr = $lnameErr = $ageErr = $ssnErr = $pnameErr = $ppriceErr = "";
-	$fname = $lname = $age = $ssn = $pname = $pprice = $result = "";
+	$fnameErr = $lnameErr = $ageErr = $ssnErr = $pnameErr = $ppriceErr = $amtErr = "";
+	$fname = $lname = $age = $ssn = $pname = $pprice = $amt = $result = "";
 	$add_to_DB = false;
 	$ftype = $_GET["form_type"];
 	
@@ -32,6 +32,9 @@
 		  break;
 		case "PART":
 		  $result = add_part($dbh);
+		  break;
+		case "ORD":
+		  $result = add_order($dbh);
 		  break;
 		default:
 		  echo "form_type not set properly";
@@ -86,18 +89,27 @@
 	  </div>
 	  
 	  <div class="Panel">
-        <form name="AddOrderForm" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+        <form name="AddOrderForm" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) . "?form_type=ORD";?>">
 	      <fieldset>
 	        <legend>Place an Order</legend>
 	        First Name:<br>
-	        <input type="text" name="firstname"><br>
+	        <input type="text" name="firstname">
+			<span class="error"><?php echo $fnameErr; ?></span>
+			<br>
 	        Last Name:<br>
-	        <input type="text" name="lastname"><br>
+	        <input type="text" name="lastname">
+			<span class="error"><?php echo $lnameErr; ?></span>
+			<br>
 			Part Name:<br>
-	        <input type="text" name="partname"><br>
+	        <input type="text" name="partname">
+			<span class="error"><?php echo $pnameErr; ?></span>
+			<br>
 			Amount:<br>	
-			<input type="text" name="Quantity"><br>
+			<input type="text" name="amount">
+			<span class="error"><?php echo $amtErr; ?></span>
+			<br><br>
 		    <input type="submit" value="Submit">
+			<span class="error"><?php if ($ftype == 'ORD') report_status($result, $add_to_DB, $ftype); ?></span>
 	      </fieldset>
 	    </form> 
 	  </div>
