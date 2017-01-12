@@ -19,7 +19,7 @@
 
     require 'scripts/DB_Scripts.php'; 
     db_connect();
-	$fnameErr = $lnameErr = $ageErr = $ssnErr = $pnameErr = $ppriceErr = $amtErr = "";
+	$fnameErr = $lnameErr = $ageErr = $ssnErr = $pnameErr = $ppriceErr = $amtErr = $ord_fnameErr = $ord_lnameErr = $ord_pnameErr = "";
 	$fname = $lname = $age = $ssn = $pname = $pprice = $amt = $result = "";
 	$add_to_DB = false;
 	$ftype = $_GET["form_type"];
@@ -94,15 +94,15 @@
 	        <legend>Place an Order</legend>
 	        First Name:<br>
 	        <input type="text" name="firstname">
-			<span class="error"><?php echo $fnameErr; ?></span>
+			<span class="error"><?php echo $ord_fnameErr; ?></span>
 			<br>
 	        Last Name:<br>
 	        <input type="text" name="lastname">
-			<span class="error"><?php echo $lnameErr; ?></span>
+			<span class="error"><?php echo $ord_lnameErr; ?></span>
 			<br>
 			Part Name:<br>
 	        <input type="text" name="partname">
-			<span class="error"><?php echo $pnameErr; ?></span>
+			<span class="error"><?php echo $ord_pnameErr; ?></span>
 			<br>
 			Amount:<br>	
 			<input type="text" name="amount">

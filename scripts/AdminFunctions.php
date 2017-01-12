@@ -127,21 +127,21 @@ function add_order ($db) {
   global $fname, $lname, $pname, $amt, $add_to_DB;
   
   if (empty($_POST["firstname"])) {
-    $fnameErr = "* First Name is required"; 
+    $ord_fnameErr = "* First Name is required"; 
 	} else {
 	    $fname = process_input($_POST["firstname"]);
 		$add_to_DB = true;
       }
 		
   if (empty($_POST["lastname"])) {
-	$lnameErr = "* Last Name is required"; 
+	$ord_lnameErr = "* Last Name is required"; 
     $add_to_DB = false;
 	} else {
 	    $lname = process_input($_POST["lastname"]);
 	  }
 		
   if (empty($_POST["partname"])) {
-    $pnameErr = "* The Part's name is required"; 
+    $ord_pnameErr = "* The Part's name is required"; 
 	$add_to_DB = false;
 	} else {
 	    $pname = process_input($_POST["partname"]);
