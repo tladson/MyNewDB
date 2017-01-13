@@ -123,7 +123,7 @@ function add_part ($db) {
 function add_order ($db) {
   // add an order to the Orders table
   
-  global $fnameErr, $lnameErr, $pnameErr, $amtErr;
+  global $ord_fnameErr, $ord_lnameErr, $ord_pnameErr, $amtErr;
   global $fname, $lname, $pname, $amt, $add_to_DB;
   
   if (empty($_POST["firstname"])) {
@@ -141,7 +141,7 @@ function add_order ($db) {
 	  }
 		
   if (empty($_POST["partname"])) {
-    $ord_pnameErr = "* The Part's name is required"; 
+    $ord_pnameErr = "* Part name is required"; 
 	$add_to_DB = false;
 	} else {
 	    $pname = process_input($_POST["partname"]);
@@ -153,7 +153,33 @@ function add_order ($db) {
 	} else {
 	    $amt = process_input($_POST["amount"]);
       }	
+	  
+  if ($add_to_DB){
+    // search for customer by name
 
+	$query_string = "SELECT Customers.Cust_ID, Parts.Part_ID, Parts.Price " .
+				    "FROM Customers, Parts " .
+					"WHERE Customers.First='$fname' " .
+					"AND Customers.Last='$lname' " .
+					"AND Parts.Name='$pname'";
+	// $result = mysqli_query($db, $query_string);
+    if ($result = mysqli_query($db, $query_string)) {
+	  while ($row = mysqli_fetch_row($result)) {
+	    $custID = $row[0];
+		$partID = $row[1];
+		$total = $amt * $row[2];
+	  }
+	  $query_string = "INSERT INTO Orders " .
+	  "(Cust_ID, Part_ID, Amount, Total) " .
+      "VALUES ($custID, $partID, $amt, $total)";
+	  if (mysqli_query($db, $query_string)) {
+	    return 1;
+      } else {
+	      echo "Error adding record: " . mysqli_error($db);
+	      return 0;
+	    }
+	} else return 0;
+  }
 }  // end Function add_order
 
 ?>
