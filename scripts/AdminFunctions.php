@@ -162,24 +162,30 @@ function add_order ($db) {
 					"WHERE Customers.First='$fname' " .
 					"AND Customers.Last='$lname' " .
 					"AND Parts.Name='$pname'";
-	// $result = mysqli_query($db, $query_string);
-    if ($result = mysqli_query($db, $query_string)) {
-	  while ($row = mysqli_fetch_row($result)) {
-	    $custID = $row[0];
-		$partID = $row[1];
-		$total = $amt * $row[2];
-	  }
-	  $query_string = "INSERT INTO Orders " .
-	  "(Cust_ID, Part_ID, Amount, Total) " .
-      "VALUES ($custID, $partID, $amt, $total)";
-	  if (mysqli_query($db, $query_string)) {
-	    return 1;
-      } else {
-	      echo "Error adding record: " . mysqli_error($db);
-	      return 0;
-	    }
-	} else return 0;
-  }
+     $result = mysqli_query($db, $query_string);
+	 
+	 if (mysqli_num_rows($result) > 1) {
+	   echo "Unable to add order: Multiple Customers found";
+	   return 0;
+	 }
+	 
+     if (mysqli_num_rows($result)) {
+	   while ($row = mysqli_fetch_row($result)) {
+	     $custID = $row[0];
+	   	 $partID = $row[1];
+	 	 $total = $amt * $row[2];
+	   }
+	   $query_string = "INSERT INTO Orders " .
+	   "(Cust_ID, Part_ID, Amount, Total) " .
+       "VALUES ($custID, $partID, $amt, $total)";
+	   if (mysqli_query($db, $query_string)) {
+	     return 1;
+       } else {
+	       echo "Error adding record: " . mysqli_error($db);
+	       return 0;
+	     } // end add operation
+	 } else return 0;  // end add operation after existing record confirmed
+  }  // end add_to_Db test
 }  // end Function add_order
 
 ?>
