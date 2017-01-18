@@ -12,7 +12,17 @@
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-	<script src="js/main.js"></script>
+<!--	<script src="js/main.js"></script>  
+-->
+    <script>
+	$(document).ready(function(){
+	  $("#addremovechoice").change(function() {
+         $("#addcustpanel").toggle();
+		 $("#removecustpanel").toggle();
+      });
+	});
+	</script>
+
   </head>
   <body>
     <center><h1>Customers Order Log</h1></center>
@@ -48,9 +58,13 @@
 	
 	  <div class="Panel">
 	    <h3>Customer Panel</h3>
-	      <form id="addremovechoice">
-		    <input type="checkbox" name="CustChoice" value="Remove" /> Remove<br><br>
-		  </form>	 
+	      <form>
+		    <select id="addremovechoice">
+			  <option value="add" selected>Add</option>
+			  <option value="remove">Remove</option>
+			</select>
+		  </form>	
+		<br><br> 
 	    <div id="addcustpanel">
           <form name="AddCustForm" method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) . "?form_type=CUST";?>">
 	        <fieldset>
@@ -76,6 +90,29 @@
 	        </fieldset>
 	      </form> 
 		</div> <!-- end AddCustPanel -->
+		<div id="removecustpanel">
+		  <form>
+		    <fieldset>
+			  <legend>Remove Customer from the DB</legend>
+			  Cust ID:<br>
+	          <input type="text" name="custid">
+			  <br>
+			  First Name:<br>
+	          <input type="text" name="firstname">
+			  <br>
+			  Last Name:<br>
+	          <input type="text" name="lastname">
+			  <br>
+			  SSN:<br>
+	          <input type="text" name="ssn">
+			  <br><br>
+	          <input type="submit" value="Submit">
+			</fieldset>
+		  </form>
+		</div> <!-- end RemoveCustPanel -->
+		<script>
+		  $("#removecustpanel").hide();
+		</script>
 	  </div>
 	  
 	  <div class="Panel">

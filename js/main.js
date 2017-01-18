@@ -1,3 +1,6 @@
-$("#addremovechoice").change(function() {
-  $("addcustpanel").hide();
-}
+$(document).ready(function(){
+	  $("#addremovechoice").change(function() {
+         $("#addcustpanel").toggle();
+		 $("#removecustpanel").toggle();
+      });
+});
