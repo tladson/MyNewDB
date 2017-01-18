@@ -11,6 +11,8 @@
     <!--[if IE]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script src="js/main.js"></script>
   </head>
   <body>
     <center><h1>Customers Order Log</h1></center>
@@ -45,29 +47,35 @@
    <div class="containerBlock"> <!-- User Input -->
 	
 	  <div class="Panel">
-        <form name="AddCustForm" method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) . "?form_type=CUST";?>">
-	      <fieldset>
-	        <legend>Add a Customer to the DB</legend>
-	        First Name:<br>
-	        <input type="text" name="firstname">
-			<span class="error"><?php echo $fnameErr; ?></span>
-			<br>
-	        Last Name:<br>
-	        <input type="text" name="lastname">
-			<span class="error"><?php echo $lnameErr; ?></span>
-			<br>
-	        Age:<br>
-	        <input type="text" name="custage">
-			<span class="error"><?php echo $ageErr; ?></span>
-			<br>
-	        SSN:<br>
-	        <input type="text" name="custssn">	
-			<span class="error"><?php echo $ssnErr; ?></span>
-			<br><br>
-	        <input type="submit" value="Submit">
-			<span class="error"><?php if ($ftype == 'CUST') report_status($result, $add_to_DB, $ftype); ?></span>
-	      </fieldset>
-	    </form> 
+	    <h3>Customer Panel</h3>
+	      <form id="addremovechoice">
+		    <input type="checkbox" name="CustChoice" value="Remove" /> Remove<br><br>
+		  </form>	 
+	    <div id="addcustpanel">
+          <form name="AddCustForm" method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) . "?form_type=CUST";?>">
+	        <fieldset>
+	          <legend>Add a Customer to the DB</legend>          
+			  First Name:<br>
+	          <input type="text" name="firstname">
+			  <span class="error"><?php echo $fnameErr; ?></span>
+			  <br>
+	          Last Name:<br>
+	          <input type="text" name="lastname">
+			  <span class="error"><?php echo $lnameErr; ?></span>
+			  <br>
+	          Age:<br>
+	          <input type="text" name="custage">
+			  <span class="error"><?php echo $ageErr; ?></span>
+			  <br>
+	          SSN:<br>
+	          <input type="text" name="custssn">	
+			  <span class="error"><?php echo $ssnErr; ?></span>
+			  <br><br>
+	          <input type="submit" value="Submit">
+			  <span class="error"><?php if ($ftype == 'CUST') report_status($result, $add_to_DB, $ftype); ?></span>
+	        </fieldset>
+	      </form> 
+		</div> <!-- end AddCustPanel -->
 	  </div>
 	  
 	  <div class="Panel">

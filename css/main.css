@@ -12,6 +12,10 @@
    width:45%;
  }
  
+ #addcustpanel {
+   border: red solid thin;
+ }
+ 
  .containerBlock {
    position: relative;
    width: 1400px;
