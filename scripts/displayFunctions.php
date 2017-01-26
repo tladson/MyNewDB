@@ -114,14 +114,24 @@ function show_orders ($db) {
  } // End function show_orders
  
 
- function report_status ($status, $addFlag, $table) {
-   if ($addFlag) 
+ function report_status ($status, $changeFlag, $table) {
+ 
+   global $errMsg;
+   
+   if ($changeFlag) 
      switch ($table) {
 	   case "CUST": 
 	     if ($status){
 				  echo "Customer added!";
 				} else {
 				    echo "Customer could not be added to DB";
+				  }
+		 break;
+	   case "RCUST":
+	     if ($status){
+				  echo "Customer removed!";
+				} else {
+				    echo $errMsg;
 				  }
 		 break;
 	   case "PART":

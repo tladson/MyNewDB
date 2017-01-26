@@ -12,17 +12,7 @@
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-<!--	<script src="js/main.js"></script>  
--->
-    <script>
-	$(document).ready(function(){
-	  $("#addremovechoice").change(function() {
-         $("#addcustpanel").toggle();
-		 $("#removecustpanel").toggle();
-      });
-	});
-	</script>
-
+	<script src="js/main.js"></script>  
   </head>
   <body>
     <center><h1>Customers Order Log</h1></center>
@@ -33,7 +23,7 @@
     db_connect();
 	$fnameErr = $lnameErr = $ageErr = $ssnErr = $pnameErr = $ppriceErr = $amtErr = $ord_fnameErr = $ord_lnameErr = $ord_pnameErr = "";
 	$fname = $lname = $age = $ssn = $pname = $pprice = $amt = $result = "";
-	$add_to_DB = false;
+	$add_to_DB = $rem_from_DB = false;
 	$ftype = $_GET["form_type"];
 	
 	if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -41,6 +31,9 @@
       switch ($ftype) {
 	    case "CUST":
           $result = add_customer($dbh);
+		  break;
+		case "RCUST":
+		  $result = remove_customer($dbh);
 		  break;
 		case "PART":
 		  $result = add_part($dbh);
@@ -91,7 +84,7 @@
 	      </form> 
 		</div> <!-- end AddCustPanel -->
 		<div id="removecustpanel">
-		  <form>
+		  <form name="RemCustForm" method="post" action="<?php echo htmlspecialchars($_SERVER['PHP_SELF']) . "?form_type=RCUST";?>">
 		    <fieldset>
 			  <legend>Remove Customer from the DB</legend>
 			  Cust ID:<br>
@@ -105,6 +98,8 @@
 			  <br>
 			  SSN:<br>
 	          <input type="text" name="ssn">
+			  <br>
+			  <span class="error"><?php if ($ftype == 'RCUST') report_status($result, $add_to_DB, $ftype); $errMsg = ""; ?></span>
 			  <br><br>
 	          <input type="submit" value="Submit">
 			</fieldset>
@@ -154,7 +149,7 @@
 			<span class="error"><?php echo $amtErr; ?></span>
 			<br><br>
 		    <input type="submit" value="Submit">
-			<span class="error"><?php if ($ftype == 'ORD') report_status($result, $add_to_DB, $ftype); ?></span>
+			<span class="error"><?php if ($ftype == 'ORD') report_status($result, $rem_from_DB, $ftype); ?></span>
 	      </fieldset>
 	    </form> 
 	  </div>

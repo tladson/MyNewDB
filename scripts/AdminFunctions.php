@@ -188,4 +188,53 @@ function add_order ($db) {
   }  // end add_to_Db test
 }  // end Function add_order
 
+function remove_customer ($db) {
+  // remove a customer record from the DB
+  global $fnameErr, $lnameErr, $ssnErr, $errMsg;
+  global $custID, $fname, $lname, $ssn, $rem_from_DB;
+  
+  if (empty($_POST["firstname"])) {
+    $fnameErr = "* First Name is required"; 
+	} else {
+	    $fname = process_input($_POST["firstname"]);
+		$rem_from_DB = true;
+      }
+		
+  if (empty($_POST["lastname"])) {
+	$lnameErr = "* Last Name is required"; 
+	} else {
+	    $lname = process_input($_POST["lastname"]);
+		$rem_from_DB = true;
+      }
+		
+  if (empty($_POST["custID"])) {
+	$ageErr = "* Cust ID is required";
+	} else {
+	    $custID = process_input($_POST["custID"]);
+		$rem_from_DB = true;
+      }
+		
+  if (empty($_POST["custssn"])) {
+	$ssnErr = "* SSN is required"; 
+	} else {
+	    $ssn = process_input($_POST["custssn"]);
+		$rem_from_DB = true;
+      }
+	  
+  if ($rem_from_DB) {
+    // if a name is specified, verify both is submitted
+	if ($fname xor $lname) {
+	  $errMsg = "Name requires both first and last";
+	  $rem_from_DB = false;
+	  return 0;
+	}
+	
+	//remove the cust record
+	return 1;
+  } else {
+      $errMsg = "At least one field is required";
+	  return 0;
+    }
+} // end Function remove_cust
+
 ?>
