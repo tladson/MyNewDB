@@ -99,15 +99,23 @@
 			  SSN:<br>
 	          <input type="text" name="ssn">
 			  <br>
-			  <span class="error"><?php if ($ftype == 'RCUST') report_status($result, $add_to_DB, $ftype); $errMsg = ""; ?></span>
+			  <span class="error"><?php if ($ftype == 'RCUST') report_status($result, $rem_from_DB, $ftype); $errMsg = ""; ?></span>
 			  <br><br>
 	          <input type="submit" value="Submit">
 			</fieldset>
 		  </form>
 		</div> <!-- end RemoveCustPanel -->
+<!-- Determine customer panel to display -->
+		<?php if ($ftype == 'RCUST') { ?>
+		  <script>
+		  $("#addcustpanel").hide();
+		  document.getElementById("addremovechoice").value = "remove";
+		  </script>
+		<?php } else { ?>
 		<script>
 		  $("#removecustpanel").hide();
 		</script>
+		<?php } ?>
 	  </div>
 	  
 	  <div class="Panel">

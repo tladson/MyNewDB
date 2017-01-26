@@ -193,30 +193,22 @@ function remove_customer ($db) {
   global $fnameErr, $lnameErr, $ssnErr, $errMsg;
   global $custID, $fname, $lname, $ssn, $rem_from_DB;
   
-  if (empty($_POST["firstname"])) {
-    $fnameErr = "* First Name is required"; 
-	} else {
-	    $fname = process_input($_POST["firstname"]);
-		$rem_from_DB = true;
-      }
+  if (!empty($_POST["firstname"])) {
+    $fname = process_input($_POST["firstname"]);
+    $rem_from_DB = true;
+  }
 		
-  if (empty($_POST["lastname"])) {
-	$lnameErr = "* Last Name is required"; 
-	} else {
-	    $lname = process_input($_POST["lastname"]);
-		$rem_from_DB = true;
-      }
+  if (!empty($_POST["lastname"])) {
+	 $lname = process_input($_POST["lastname"]);
+	 $rem_from_DB = true;
+  }
 		
-  if (empty($_POST["custID"])) {
-	$ageErr = "* Cust ID is required";
-	} else {
+  if (!empty($_POST["custID"])) {
 	    $custID = process_input($_POST["custID"]);
 		$rem_from_DB = true;
       }
 		
-  if (empty($_POST["custssn"])) {
-	$ssnErr = "* SSN is required"; 
-	} else {
+  if (!empty($_POST["custssn"])) {
 	    $ssn = process_input($_POST["custssn"]);
 		$rem_from_DB = true;
       }
@@ -233,6 +225,7 @@ function remove_customer ($db) {
 	return 1;
   } else {
       $errMsg = "At least one field is required";
+	  $rem_from_DB = true;  // setting to true so report status function works
 	  return 0;
     }
 } // end Function remove_cust
