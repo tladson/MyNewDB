@@ -88,7 +88,7 @@
 		    <fieldset>
 			  <legend>Remove Customer from the DB</legend>
 			  Cust ID:<br>
-	          <input type="text" name="custid">
+	          <input type="text" name="custID">
 			  <br>
 			  First Name:<br>
 	          <input type="text" name="firstname">
@@ -97,7 +97,7 @@
 	          <input type="text" name="lastname">
 			  <br>
 			  SSN:<br>
-	          <input type="text" name="ssn">
+	          <input type="text" name="custssn">
 			  <br>
 			  <span class="error"><?php if ($ftype == 'RCUST') report_status($result, $rem_from_DB, $ftype); $errMsg = ""; ?></span>
 			  <br><br>

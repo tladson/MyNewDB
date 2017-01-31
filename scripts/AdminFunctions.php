@@ -39,7 +39,7 @@ function process_input ($data) {
 function add_customer ($db) {
   // add a customer to the DB
   
-  global $fnameErr, $lnameErr, $ageErr, $ssnErr, $add_to_DB;
+  global $fnameErr, $lnameErr, $ageErr, $ssnErr, $errMsg, $add_to_DB;
   global $fname, $lname, $age, $ssn;
   
   if (empty($_POST["firstname"])) {
@@ -79,7 +79,7 @@ function add_customer ($db) {
 	  if (mysqli_query($db, $query_string)) {
 	    return 1;
       } else {
-	      echo "Error adding record: " . mysqli_error($db);
+	      $errMsg = "Error adding record: " . mysqli_error($db);
 	      return 0;
 	    }
     }
@@ -188,10 +188,13 @@ function add_order ($db) {
   }  // end add_to_Db test
 }  // end Function add_order
 
+
+
 function remove_customer ($db) {
   // remove a customer record from the DB
   global $fnameErr, $lnameErr, $ssnErr, $errMsg;
   global $custID, $fname, $lname, $ssn, $rem_from_DB;
+  $rec = "";
   
   if (!empty($_POST["firstname"])) {
     $fname = process_input($_POST["firstname"]);
@@ -205,11 +208,13 @@ function remove_customer ($db) {
 		
   if (!empty($_POST["custID"])) {
 	    $custID = process_input($_POST["custID"]);
+		$rec = "custID";
 		$rem_from_DB = true;
       }
 		
   if (!empty($_POST["custssn"])) {
 	    $ssn = process_input($_POST["custssn"]);
+		$rec = "custssn";
 		$rem_from_DB = true;
       }
 	  
@@ -217,12 +222,41 @@ function remove_customer ($db) {
     // if a name is specified, verify both is submitted
 	if ($fname xor $lname) {
 	  $errMsg = "Name requires both first and last";
-	  $rem_from_DB = false;
 	  return 0;
-	}
+	} 
 	
 	//remove the cust record
-	return 1;
+	$query_string = "DELETE FROM Customers ";
+	switch ($rec) {
+	  case "custID" : 
+	    $query_string .= "WHERE Cust_ID = $custID";
+		break;
+	  case "custssn" :
+	    $query_string .= "WHERE SSN = $ssn";
+		break;
+	  default:    // a name is being used
+	    $val_name = "SELECT * FROM Customers " .
+		            "WHERE First = '$fname' " . 
+					"AND Last = '$lname'";
+	    if ($result = mysqli_query($db, $val_name)) {
+		  if (mysqli_num_rows($result) > 1) {
+		    $errMsg = "Multiple Records found. Please use Cust ID or SSN";
+			return 0;
+		  }
+		} else {
+	        $errMsg = "Error removing record: " . mysqli_error($db);
+	        return 0;
+	      } // end retrieving customer by name test
+	    $query_string .= "WHERE First = '$fname' ";
+		$query_string .= "AND Last = '$lname'";
+	}
+                
+	if (mysqli_query($db, $query_string)) {
+	   return 1;
+    } else {
+	    $errMsg = "Error removing record: " . mysqli_error($db);
+	    return 0;
+	  } // end remove operation	
   } else {
       $errMsg = "At least one field is required";
 	  $rem_from_DB = true;  // setting to true so report status function works
