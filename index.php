@@ -119,6 +119,14 @@
 	  </div>
 	  
 	  <div class="Panel">
+	    <h3>...</h3>
+	      <form>
+		    <select id="addremovechoice_parts">
+			  <option value="add" selected>Add</option>
+			  <option value="remove">Remove</option>
+			</select>
+		  </form>	
+		<br><br> 	  
         <form name="AddPartForm" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]) . "?form_type=PART";?>">
 	      <fieldset>
 	        <legend>Add a Part to the DB</legend>
