@@ -119,7 +119,7 @@
 	  </div>
 	  
 	  <div class="Panel">
-	    <h3>...</h3>
+	    <h3>Parts Panel</h3>
 	      <form>
 		    <select id="addremovechoice_parts">
 			  <option value="add" selected>Add</option>
